@@ -14,7 +14,7 @@ Hands-on experience in manual and automated testing across large-scale systems:
 - Delivered ADA/Accessibility compliance for U.S. regulatory platforms  
 - Experience with Jira administration and the full QA lifecycle (STLC)  
 
-Currently focused on building automation expertise with Playwright.
+Currently focused on building automation expertise with Playwright and JavaScript.
 
 ---
 
