@@ -1,0 +1,17 @@
+{
+  "name": "playwright-automation-portfolio",
+  "version": "1.0.0",
+  "description": "QA Automation portfolio: UI + API tests with Playwright, JavaScript, and GitHub Actions CI/CD",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test tests/ui/",
+    "test:api": "playwright test tests/api/",
+    "report": "playwright show-report reports/html"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0"
+  },
+  "keywords": ["playwright", "automation", "testing", "qa", "javascript"],
+  "author": "Your Name",
+  "license": "MIT"
+}

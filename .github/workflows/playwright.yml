@@ -1,0 +1,44 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:   # дозволяє запускати вручну з GitHub UI
+
+jobs:
+  test:
+    name: Run Playwright Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run UI tests
+        run: npx playwright test tests/ui/
+
+      - name: Run API tests
+        run: npx playwright test tests/api/
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        if: always()   # завантажує звіт навіть якщо тести впали
+        with:
+          name: playwright-report
+          path: reports/html/
+          retention-days: 14
